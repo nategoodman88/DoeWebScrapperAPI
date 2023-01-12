@@ -58,17 +58,11 @@ function parseData() {
 parseData();
 
 app.get("/males",(req, res)  => {
-    res.send(JSON.stringify(
-    {
-        "Male Does": male_doe_arr,
-    }
-    ))})
+    res.send([{"Male Does": male_doe_arr}] )
+    })
 
 app.get("/females",(req, res)  => {
-    res.send(JSON.stringify(
-    {
-        "Female Does": female_doe_arr,
-    }
-    ))})
+    res.send([{"Female Does": female_doe_arr}])
+    })
 
 app.listen(port, () => console.log("Server running"));
