@@ -15,12 +15,15 @@ async function getMales() {
     try {
         const response = await axios.get(male_doe_url);
         const $ = cheerio.load(response.data);
-        //Find any element with class rig (the class used by Doe Network's UL of Does) then parse through each child LI, then parse through each child h3 and save that as the title of the Doe. Push to previous array for saving
+        //Find any element with class rig (the class used by Doe Network's UL of Does) then parse through each child LI, then parse through each child *x* and save that as link to Doe's page. Save h3 and save that as the title of the Doe. Save attributes as attributes of the Doe. Push to previous array for saving
         $(".rig", response.data).each((index, element) => {
             $(element).children("li").each((index, element) => {
-                const maleDoeTitle = $(element).children("h3").text()
-                //const maleDoeRace = $(element).children("").text() -> WIP 
-                male_doe_arr.push({maleDoeTitle},/*{MaleDoeRace} -> WIP */);
+                //let doeNetworkLink= $(element).children("").text(); -> WIP
+                let maleDoeTitle = $(element).children("h3").text().toString();
+                let maleDoeAttributes= $(element).text().toString();
+                //Replace redundant info
+                maleDoeAttributes = maleDoeAttributes.replace(maleDoeTitle, "")
+                male_doe_arr.push({/*doeNetworkLink,*/maleDoeTitle,maleDoeAttributes});
                 //console.log(male_doe_arr); -> for debugging
                 return male_doe_arr;
             })
@@ -35,12 +38,15 @@ async function getFemales() {
     try {
         const response = await axios.get(female_doe_url);
         const $ = cheerio.load(response.data);
-        //Find any element with class rig (the class used by Doe Network's UL of Does) then parse through each child LI, then parse through each child h3 and save that as the title of the Doe. Push to previous array for saving
+        //Find any element with class rig (the class used by Doe Network's UL of Does) then parse through each child LI, then parse through each child *x* and save that as link to Doe's page. Save h3 and save that as the title of the Doe. Save attributes as attributes of the Doe. Push to previous array for saving
         $(".rig", response.data).each((index, element) => {
             $(element).children("li").each((index, element) => {
-                const femaleDoeTitle = $(element).children("h3").text()
-                //const femaleDoeRace = $(element).children("").text() -> WIP 
-                female_doe_arr.push({femaleDoeTitle},/*{femaleDoeRace} -> WIP */);
+                //let doeNetworkLink = $(element).children("").text(); -> WIP
+                let femaleDoeTitle = $(element).children("h3").text().toString();
+                let femaleDoeAttributes= $(element).text().toString();
+                //Replace redundant info
+                femaleDoeAttributes = femaleDoeAttributes.replace(femaleDoeTitle, "")
+                female_doe_arr.push({/*doeNetworkLink,*/femaleDoeTitle,femaleDoeAttributes});
                 //console.log(female_doe_arr); -> for debugging
                 return female_doe_arr;
             })
