@@ -40,7 +40,7 @@ catch(e) {
 
 async function getFemales() {
     try {
-        const response = await axios.get(male_doe_url);
+        const response = await axios.get(female_doe_url);
         const $ = cheerio.load(response.data);
         //Find any element with class rig (the class used by Doe Network's UL of Does) then parse through each child LI, then parse through each child *x* and save that as link to Doe's page. Save h3 and save that as the title of the Doe. Save attributes as attributes of the Doe. Push to previous array for saving
         $(".rig", response.data).each((index, element) => {
