@@ -20,13 +20,13 @@ async function getMales() {
             $(element).children("li").each((value, element) => {
                 $(element).children('a').each((value, aElement) => {
                 let doeNetworkLink = ($(aElement).attr('href')); 
-                //console.log(doeNetworkLink);
+                //console.log(doeNetworkLink); -> for debugging
                 let maleDoeTitle = $(element).children("h3").text().toString();
                 let maleDoeAttributes= $(element).text().toString();
                 //Replace redundant info
                 maleDoeAttributes = maleDoeAttributes.replace(maleDoeTitle, "")
                 male_doe_arr.push({doeNetworkLink,maleDoeTitle,maleDoeAttributes});
-                //console.log(male_doe_arr); //-> for debugging
+                //console.log(male_doe_arr); -> for debugging
                 return male_doe_arr;
             })
         })
@@ -47,13 +47,13 @@ async function getFemales() {
             $(element).children("li").each((value, element) => {
                 $(element).children('a').each((value, aElement) => {
                 let doeNetworkLink = ($(aElement).attr('href')); 
-                //console.log(doeNetworkLink);
+                //console.log(doeNetworkLink); -> for debugging
                 let femaleDoeTitle = $(element).children("h3").text().toString();
                 let femaleDoeAttributes= $(element).text().toString();
                 //Replace redundant info
                 femaleDoeAttributes = femaleDoeAttributes.replace(femaleDoeTitle, "")
                 female_doe_arr.push({doeNetworkLink,femaleDoeTitle,femaleDoeAttributes});
-                //console.log(male_doe_arr); //-> for debugging
+                //console.log(male_doe_arr); -> for debugging
                 return male_doe_arr;
             })
         })
