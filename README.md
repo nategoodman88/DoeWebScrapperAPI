@@ -2,12 +2,7 @@
 
 A web scrapper and API built with Node JS to facilitate matching of John and Jane Doe cases with missing persons reports from the Doe Network
 
-
-Very Early WIP
-
-
 To run:
-
 
 Install NPM and Node JS https://docs.npmjs.com/cli/v7/configuring-npm/install or sudo apt install nodejs npm 
 
@@ -31,7 +26,3 @@ Paths:
 
 /getfemalemissing -> gets all US female missing persons from DoeNetwork
 
-
-Coming Next:
-
-Path to output the return of a function that compares the doe arrays with their gender-equivalent missing person arrays and finds similarities
